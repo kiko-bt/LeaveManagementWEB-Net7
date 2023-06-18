@@ -9,7 +9,7 @@ using LeaveManagement.Web.Constants;
 
 namespace LeaveManagement.Web.Controllers
 {
-    [Authorize(Roles = Roles.Administrator)]
+    [Authorize]
     public class LeaveTypesController : Controller
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
@@ -25,6 +25,7 @@ namespace LeaveManagement.Web.Controllers
             _leaveAllocationRepository = leaveAllocationRepository;
         }
 
+        [Authorize(Roles = Roles.Administrator)]
         // GET: LeaveTypes
         public async Task<IActionResult> Index()
         {
